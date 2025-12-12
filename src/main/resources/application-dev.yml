@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: claim
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/insurance_db
+    username: db_user
+    password: secret4321!!
+
+  kafka:
+    bootstrap-servers: localhost:29092
+
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+services:
+  policy-url: http://localhost:8082
+
+server:
+  port: 8084
